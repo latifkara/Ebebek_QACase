@@ -1,31 +1,21 @@
 package framework;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.util.List;
+
+@ConfigurationProperties(prefix = "my-properties.test")
+@Data
+@AllArgsConstructor
 public class ConfigReader {
 
-    private static Properties properties;
-
-    public static Properties initialize_Properties() {
-        properties = new Properties();
-        try {
-            FileInputStream fileInputStream = new FileInputStream("./src/test/resources/config.properties");
-            properties.load(fileInputStream);
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return getProperties();
-    }
-
-    public static Properties getProperties() {
-        return properties;
-    }
+    private String url;
+    private Integer implicityWait;
+    private Integer pageLoadTimeout;
+    private List<String> browser;
 
 
 }

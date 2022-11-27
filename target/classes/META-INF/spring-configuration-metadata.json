@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "my-properties.test",
+      "type": "framework.ConfigReader",
+      "sourceType": "framework.ConfigReader"
+    }
+  ],
+  "properties": [
+    {
+      "name": "my-properties.test.browser",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "framework.ConfigReader"
+    },
+    {
+      "name": "my-properties.test.implicity-wait",
+      "type": "java.lang.Integer",
+      "sourceType": "framework.ConfigReader"
+    },
+    {
+      "name": "my-properties.test.page-load-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "framework.ConfigReader"
+    },
+    {
+      "name": "my-properties.test.url",
+      "type": "java.lang.String",
+      "sourceType": "framework.ConfigReader"
+    }
+  ],
+  "hints": []
+}

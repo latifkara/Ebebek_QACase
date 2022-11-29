@@ -1,21 +1,23 @@
 package framework;
 
+import lombok.Getter;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Properties;
 
+@Getter
 public class Hooks {
-//    private Properties properties;
-//    private WebDriver driver;
-//    @Before
-//    public void setBrowser(){
-//       driver = DriverSetup.initialize_Driver(ConfigReader.initialize_Properties().getProperty("browser"));
-//    }
-//
-//    @After
-//    public void closeBrowser(){
-//        driver.quit();
-//    }
+    static WebDriver driver;
+    static Properties properties;
+    @Before
+    public void setChrome(){
+       driver = DriverSetup.initialize_Driver(properties.getProperty("browser"));
+    }
+
+    @After
+    public void closeBrowser(){
+        driver.quit();
+    }
 }

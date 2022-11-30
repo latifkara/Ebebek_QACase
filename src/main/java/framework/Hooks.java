@@ -10,10 +10,10 @@ import java.util.Properties;
 @Getter
 public class Hooks {
     static WebDriver driver;
-    static Properties properties;
+    static EnvConfiguration properties;
     @Before
     public void setChrome(){
-       driver = DriverSetup.initialize_Driver(properties.getProperty("browser"));
+       driver = DriverSetup.initialize_Driver(properties.getUrl());
     }
 
     @After

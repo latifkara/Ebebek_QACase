@@ -10,6 +10,5 @@ public class TestOtomation {
 
     @Test
     public void testApi(){
-        properties.printUrl();
     }
 }

@@ -1,0 +1,9 @@
+{
+  "deviceName" : "Pixel 4 API 30",
+  "automationName" : "uiautomator2",
+  "platformVersion" : "11.0",
+  "platformName" : "Android",
+  "skipUnlock" : true,
+  "newCommandTimeout" : 3600,
+  "connectHardwareKeyboard" : true
+}

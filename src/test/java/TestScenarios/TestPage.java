@@ -9,7 +9,7 @@ public class TestPage {
     private Page page;
 
     @Test
-    public void testSearch(){
+    public void testSearch() throws InterruptedException {
         page = new Page();
         page.searchElement();
     }

@@ -17,8 +17,6 @@ public class Hooks {
         properties = new EnvConfiguration();
     }
     public WebDriver setAndGetChrome(){
-        System.out.println("Hooks");
-        System.out.println(properties.getUrl());
         driver = DriverSetup.initialize_Driver(properties);
         return driver;
     }

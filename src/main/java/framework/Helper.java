@@ -1,5 +1,6 @@
 package framework;
 
+import lombok.Getter;
 import org.junit.jupiter.api.Timeout;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
@@ -12,6 +13,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.Duration;
 
+@Getter
 public class Helper {
 
     private WebDriver driver;
@@ -23,7 +25,7 @@ public class Helper {
     }
 
     public WebElement findElement(By element){
-        this.wait.until(ExpectedConditions.elementToBeClickable(element));
+        this.waitUntil(element);
         return this.driver.findElement(element);
     }
     public void click(By element){
@@ -32,6 +34,10 @@ public class Helper {
 
     public void sendKeys(By element, CharSequence keys){
         this.findElement(element).sendKeys(keys);
+    }
+
+    public void waitUntil(By element){
+        this.wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
 

@@ -25,7 +25,6 @@ public class EnvConfiguration {
         this.setImplicityWait(Integer.parseInt(properties.getProperty("implicityWait")));
         this.setPageLoadTimeout(Integer.parseInt(properties.getProperty("pageLoadTimeout")));
         this.setBrowser(properties.getProperty("browser"));
-        System.out.println("url : " + this.getUrl());
     }
 
 }

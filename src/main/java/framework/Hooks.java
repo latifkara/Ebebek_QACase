@@ -1,6 +1,7 @@
 package framework;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -9,14 +10,19 @@ import java.util.Properties;
 
 @Getter
 public class Hooks {
-    static WebDriver driver;
-    static EnvConfiguration properties;
-    @Before
-    public void setChrome(){
-       driver = DriverSetup.initialize_Driver(properties.getUrl());
+    public static WebDriver driver;
+    public EnvConfiguration properties;
+
+    public Hooks(){
+        properties = new EnvConfiguration();
+    }
+    public WebDriver setAndGetChrome(){
+        System.out.println("Hooks");
+        System.out.println(properties.getUrl());
+        driver = DriverSetup.initialize_Driver(properties);
+        return driver;
     }
 
-    @After
     public void closeBrowser(){
         driver.quit();
     }

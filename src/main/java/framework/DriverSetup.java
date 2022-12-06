@@ -4,27 +4,31 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class DriverSetup {
 
     static WebDriver driver;
-    static EnvConfiguration properties;
-    public static WebDriver initialize_Driver(String browserName){
+    //static EnvConfiguration properties;
 
+    public static WebDriver initialize_Driver(EnvConfiguration properties){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.setExperimentalOption("excludeSwitches", "disable-popup-blocking");
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); //removes the banner
-        switch (browserName){
+        switch (properties.getBrowser()){
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(options);
+                break;
             case "Firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new ChromeDriver(options);
-
+                driver = new FirefoxDriver();
+                break;
         }
+        System.out.println(properties.getUrl());
         String url = properties.getUrl();
         int impWait = properties.getImplicityWait();
         int pageWait = properties.getPageLoadTimeout();
@@ -36,6 +40,8 @@ public class DriverSetup {
     }
 
     public static WebDriver getDriver(){
+//        Hooks hooks = new Hooks();
+//        hooks.setChrome();
         return driver;
     }
 

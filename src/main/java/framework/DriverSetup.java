@@ -35,18 +35,13 @@ public class DriverSetup {
         int pageWait = properties.getPageLoadTimeout();
         driver.get(url);
         driver.manage().window().maximize();
-//        System.out.println(driver.findElement(closePage).isDisplayed());
-//        if (driver.findElement(closePage).isEnabled()){
-//            driver.findElement(closePage).click();
-//        }
+        driver.navigate().refresh();
         driver.manage().timeouts().pageLoadTimeout(impWait, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(pageWait, TimeUnit.SECONDS);
         return getDriver();
     }
 
     public static WebDriver getDriver(){
-//        Hooks hooks = new Hooks();
-//        hooks.setChrome();
         return driver;
     }
 

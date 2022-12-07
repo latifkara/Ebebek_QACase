@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class TestPage {
 
-    private Page page;
+
 
     @Test
     public void testSearch() throws InterruptedException {
-        page = new Page();
+        Page page = new Page();
         page.searchElement();
     }
 }

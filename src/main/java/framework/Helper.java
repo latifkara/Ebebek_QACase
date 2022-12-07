@@ -12,6 +12,7 @@ import javax.xml.crypto.Data;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.Duration;
+import java.util.List;
 
 @Getter
 public class Helper {
@@ -28,6 +29,12 @@ public class Helper {
         this.waitUntil(element);
         return this.driver.findElement(element);
     }
+
+    public List<WebElement> findElements(By element){
+        this.waitUntil(element);
+        return this.driver.findElements(element);
+    }
+
     public void click(By element){
         this.findElement(element).click();
     }

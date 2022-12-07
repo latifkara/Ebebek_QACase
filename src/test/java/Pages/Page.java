@@ -23,12 +23,13 @@ public class Page {
         helper = new Helper(this.driver);
     }
     public void searchElement() throws InterruptedException {
+
         this.helper.click(searchBar);
         this.helper.sendKeys(searchBar, "kaşık maması");
         this.helper.sendKeys(searchBar, Keys.ENTER);
         JavascriptExecutor jsx = (JavascriptExecutor)driver;
         //this.helper.waitUntil(lastItem);
-        this.helper.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        this.helper.getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         jsx.executeScript("window.scrollBy(0,1000)", "");
         this.helper.click(lastItem);
     }
